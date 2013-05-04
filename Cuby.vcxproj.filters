@@ -18,9 +18,6 @@
     <ClCompile Include="Cuby.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IDisplay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,12 +27,12 @@
     <ClCompile Include="SDLDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ADisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cuby.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IDisplay.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Exception.hpp">
@@ -48,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDLDisplay.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADisplay.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

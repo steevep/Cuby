@@ -69,14 +69,14 @@
   <ItemGroup>
     <ClCompile Include="Cuby.cpp" />
     <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="IDisplay.cpp" />
+    <ClCompile Include="ADisplay.cpp" />
     <ClCompile Include="SDLDisplay.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cuby.hpp" />
     <ClInclude Include="Exception.hpp" />
-    <ClInclude Include="IDisplay.hpp" />
+    <ClInclude Include="ADisplay.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDLDisplay.hpp" />
     <ClInclude Include="Settings.hpp" />

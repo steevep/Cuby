@@ -1,7 +1,5 @@
 #include "Cuby.hpp"
 
-#include "SDL.h"
-
 Cuby::Cuby(void)
 {
 	std::cout << PROJECT_NAME << " Constructor" << std::endl;
@@ -9,7 +7,7 @@ Cuby::Cuby(void)
 	// Init Attributes
 	this->quit = false;
 	this->settings = new Settings();
-	this->display = new IDisplay();
+	this->display = new SDLDisplay(false);
 }
 
 

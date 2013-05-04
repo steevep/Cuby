@@ -6,9 +6,9 @@
 
 // Includes
 #include <iostream>
-#include "IDisplay.hpp"
 #include "Settings.hpp"
 #include "Exception.hpp"
+#include "SDLDisplay.hpp"
 
 class Cuby
 {
@@ -24,7 +24,7 @@ public:
 	// Attributes
 private:
 	bool			quit;	
-	IDisplay		*display;
+	ADisplay		*display;
 	Settings		*settings;
 
 };
