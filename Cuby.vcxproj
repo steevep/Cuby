@@ -70,6 +70,7 @@
     <ClCompile Include="Cuby.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="IDisplay.cpp" />
+    <ClCompile Include="SDLDisplay.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +78,7 @@
     <ClInclude Include="Exception.hpp" />
     <ClInclude Include="IDisplay.hpp" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SDLDisplay.hpp" />
     <ClInclude Include="Settings.hpp" />
   </ItemGroup>
   <ItemGroup>

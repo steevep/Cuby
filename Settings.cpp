@@ -5,7 +5,7 @@ Settings::Settings()
 
 }
 
-Settings::~Settings() throw()
+Settings::~Settings()
 {
   
 }
