@@ -25,13 +25,11 @@ public:
 	virtual eKey pressedKey(void) = 0;
 
 	// Getters
-public:
-	bool			getFullscreen(void) const;
-	unsigned int	getHeight(void) const;
-	unsigned int	getWidth(void) const;
+	bool			getFullscreen(void);
+	unsigned int	getHeight(void);
+	unsigned int	getWidth(void);
 
 	// Setters
-public:
 	void			setFullscreen(bool);
 	void			setHeight(unsigned int);
 	void			setWidth(unsigned int);

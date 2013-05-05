@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AE31728D-D063-418C-8DDD-BEDA0D7A5A12}</ProjectGuid>
+    <ProjectGuid>{8F26A143-1333-4DB5-A9E9-ED6098C19B16}</ProjectGuid>
     <RootNamespace>Cuby</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -38,15 +38,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Applications\SDL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Applications\SDL\lib\x86;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\VC\lib\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,18 +67,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cuby.cpp" />
+    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="ADisplay.cpp" />
+    <ClCompile Include="SDLDisplay.cpp" />
+    <ClCompile Include="Settings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="Cuby.hpp" />
     <ClInclude Include="Exception.hpp" />
+    <ClInclude Include="ADisplay.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SDLDisplay.hpp" />
-    <ClInclude Include="Section.hpp" />
     <ClInclude Include="Settings.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cuby.cpp" />
-    <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="SDLDisplay.cpp" />
-    <ClCompile Include="Section.cpp" />
-    <ClCompile Include="Settings.cpp" />
+    <ResourceCompile Include="Cuby.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
