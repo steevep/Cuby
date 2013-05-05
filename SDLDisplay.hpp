@@ -57,6 +57,7 @@ private:
 	bool			fullscreen;
 	unsigned int	height;
 	unsigned int	width;
+	SDL_VideoInfo	*hardware;
 	SDL_Surface		*screen;
 	SDL_Event		event;
 };

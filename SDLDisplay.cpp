@@ -8,8 +8,10 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 	int	flags;
 	int	inits;
 
+	SDL_putenv("SDL_VIDEO_CENTERED=center");
+
 	// Init temporary variables
-	flags = SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF/* | SDL_NOFRAME*/;
+	flags = SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF | SDL_NOFRAME;
 	inits = SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER;
 
 	// Init Attributes
@@ -19,24 +21,35 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 
 	// Init SDL
 	if (SDL_Init(inits) == -1)
-	  throw Exception(SDL_GetError());
+		throw Exception(SDL_GetError());
 
-  /*if (TTF_Init() == -1)
-    throw Exception("TTF Init failed. :(");
-  if (!(this->font = TTF_OpenFont("./media/font.ttf", 40)))
-    exit_msg(1, "Cannot open the requested font. :(");*/
+	this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
+
+	/*if (TTF_Init() == -1)
+	throw Exception("TTF Init failed. :(");
+	if (!(this->font = TTF_OpenFont("./media/font.ttf", 40)))
+	exit_msg(1, "Cannot open the requested font. :(");*/
 	/*
-  this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
-  this->monitor_height = this->hardware->current_h;
-  this->monitor_width = this->hardware->current_w;*/
+	this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
+	this->monitor_height = this->hardware->current_h;
+	this->monitor_width = this->hardware->current_w;*/
 
-  //SDL_WM_SetIcon(SDL_LoadBMP("./media/icon.bmp"), NULL);
-  this->screen = SDL_SetVideoMode(this->getWidth(), this->getHeight(), 32, flags);
-  if (!this->screen)
-	  throw Exception(SDL_GetError());
-  MainScreen = this->screen;
-  SDL_WM_SetCaption(title.c_str(), NULL);
-  //SDL_ShowCursor(SDL_DISABLE);
+	//SDL_WM_SetIcon(SDL_LoadBMP("./media/icon.bmp"), NULL);
+	if (this->fullscreen)
+	{
+		this->screen = SDL_SetVideoMode(this->hardware->current_w, this->hardware->current_h, 32, flags);
+		settings->setHeight(this->hardware->current_h);
+		settings->setWidth(this->hardware->current_w);
+		this->setHeight(this->hardware->current_h);
+		this->setWidth(this->hardware->current_w);
+	}
+	else
+		this->screen = SDL_SetVideoMode(this->getWidth(), this->getHeight(), 32, flags);
+	if (!this->screen)
+		throw Exception(SDL_GetError());
+	MainScreen = this->screen;
+	SDL_WM_SetCaption(title.c_str(), NULL);
+	//SDL_ShowCursor(SDL_DISABLE);
 }
 
 SDLDisplay::~SDLDisplay()

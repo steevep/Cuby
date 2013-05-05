@@ -5,7 +5,7 @@ Settings::Settings(const std::string & configurationFile)
 	this->height = 600;
 	this->width = 1024;
 	this->blocksize = 40;
-	this->fullscreen = false;
+	this->fullscreen = true;
 }
 
 Settings::~Settings()

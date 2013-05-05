@@ -6,7 +6,7 @@ Cuby::Cuby(void)
 	this->quit = false;
 	this->settings = new Settings("xml configuration file");
 	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
-	//this->display->EnableTransparentWindows();
+	this->display->EnableTransparentWindows();
 }
 
 Cuby::~Cuby(void)
@@ -95,7 +95,7 @@ void Cuby::CreateBlocks(eSection _section)
 	horizontal_blocks = this->display->getWidth() / this->settings->getBlocksize();
 	section = this->GetSection(_section);
 	if (section != NULL)
-		while (y < vertical_blocks)
+		while (y <= vertical_blocks)
 		{
 			x = 0;
 			while (x < horizontal_blocks)
