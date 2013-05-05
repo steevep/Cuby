@@ -6,8 +6,8 @@ Cuby::Cuby(void)
 
 	// Init Attributes
 	this->quit = false;
-	this->settings = new Settings();
-	this->display = new SDLDisplay(false);
+	this->settings = new Settings("xml configuration file");
+	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
 }
 
 

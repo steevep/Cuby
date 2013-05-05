@@ -6,6 +6,7 @@
 
 // Includes
 #include <iostream>
+#include "Section.hpp"
 #include "Settings.hpp"
 #include "Exception.hpp"
 #include "SDLDisplay.hpp"
@@ -20,12 +21,15 @@ public:
 	// Members functions
 public:
 	void Run(void);
+	void DrawSection(void);
+	void UpdateSection(void);
+	void HandleEvents(void);
 
 	// Attributes
 private:
-	bool			quit;	
-	ADisplay		*display;
-	Settings		*settings;
-
+	bool					quit;
+	SDLDisplay				*display;
+	Settings				*settings;
+	std::list<Section *>	sections;
 };
 

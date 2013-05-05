@@ -1,25 +1,20 @@
-﻿Build started 05/05/2013 00:52:53.
+﻿Build started 05/05/2013 02:40:04.
      1>Project "C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Cuby.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\lib\SDL" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ADisplay.cpp Cuby.cpp SDLDisplay.cpp
-         ADisplay.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Cuby.cpp Section.cpp
+         Section.cpp
          Generating Code...
-         Compiling...
-         SDLDisplay.cpp
+         Skipping... (no relevant changes detected)
          Cuby.cpp
-     1>c:\users\steeve pommier\documents\github\cuby\cuby.cpp(27): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(881) : see declaration of '_sleep'
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.exe" /INCREMENTAL /NOLOGO SDL.lib SDLmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.lib" /MACHINE:X86 Debug\Cuby.res
-         Debug\Cuby.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.exe" /INCREMENTAL /NOLOGO SDL.lib SDLmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.lib" /MACHINE:X86 Debug\Cuby.obj
          Debug\Exception.obj
-         Debug\ADisplay.obj
          Debug\SDLDisplay.obj
+         Debug\Section.obj
          Debug\Settings.obj
          Cuby.vcxproj -> C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Debug\Cuby.exe
      1>Done Building Project "C:\Users\Steeve Pommier\Documents\GitHub\Cuby\Cuby.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.99
+Time Elapsed 00:00:00.83
