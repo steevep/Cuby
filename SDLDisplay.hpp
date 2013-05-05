@@ -1,27 +1,64 @@
 #ifndef		SDLDisplay_HPP
 # define	SDLDisplay_HPP
 
-// Includes
-#include "SDL.h"
-#include "ADisplay.hpp"
-#include "Exception.hpp"
+// Type definitions
+typedef enum
+{
+	RIGHT,
+	LEFT,
+	UP,
+	DOWN,
+	ESC,
+	NOKEY
+}	eKey;
 
-class		SDLDisplay : public ADisplay
+typedef enum
+{
+	QUIT,
+	RESIZE,
+	NOEVENT
+}	eEvent;
+
+// Includes
+# include "SDL.h"
+# include "Settings.hpp"
+# include "Exception.hpp"
+
+# include <windows.h>
+# include "SDL_syswm.h"
+
+class		SDLDisplay
 {
 	// Constructor and destructor
 public:
-	SDLDisplay(bool);
-	virtual ~SDLDisplay(void);
+	SDLDisplay(const std::string &, Settings *);
+	~SDLDisplay(void);
 
 	// Members functions
 public:
-	virtual void init(void);
-	virtual void refresh(void);
-	virtual eKey pressedKey(void);
+	void		Clear(void);
+	void		Refresh(void);
+	eKey		PressedKey(void);
+	eEvent		HandleEvents(void);
+	void		EnableTransparentWindows(void);
+
+// Getters
+	bool			getFullscreen(void) const;
+	unsigned int	getHeight(void) const;
+	unsigned int	getWidth(void) const;
+
+	// Setters
+	void			setFullscreen(bool);
+	void			setHeight(unsigned int);
+	void			setWidth(unsigned int);
 
 	// Attributes
 private:
-	SDL_Surface	*screen;
+	bool			fullscreen;
+	unsigned int	height;
+	unsigned int	width;
+	SDL_Surface		*screen;
+	SDL_Event		event;
 };
 
 #endif

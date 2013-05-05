@@ -38,7 +38,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Applications\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Applications\SDL\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -67,22 +70,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AObject.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="Cuby.cpp" />
     <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="ADisplay.cpp" />
     <ClCompile Include="SDLDisplay.cpp" />
+    <ClCompile Include="Section.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AObject.hpp" />
+    <ClInclude Include="Block.hpp" />
     <ClInclude Include="Cuby.hpp" />
     <ClInclude Include="Exception.hpp" />
-    <ClInclude Include="ADisplay.hpp" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="SDLDisplay.hpp" />
+    <ClInclude Include="Section.hpp" />
     <ClInclude Include="Settings.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Cuby.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,31 +1,128 @@
 #include "SDLDisplay.hpp"
 
-SDLDisplay::SDLDisplay(bool _fullscreen)
+SDL_Surface *MainScreen = NULL;
+
+SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 {
+	// Temporary variables
+	int	flags;
+	int	inits;
+
+	// Init temporary variables
+	flags = SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF/* | SDL_NOFRAME*/;
+	inits = SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER;
+
 	// Init Attributes
-	this->setFullscreen(_fullscreen);
+	this->setFullscreen(settings->getFullscreen());
+	this->setHeight(settings->getHeight());
+	this->setWidth(settings->getWidth());
 
 	// Init SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-		throw Exception(SDL_GetError());
+	if (SDL_Init(inits) == -1)
+	  throw Exception(SDL_GetError());
+
+  /*if (TTF_Init() == -1)
+    throw Exception("TTF Init failed. :(");
+  if (!(this->font = TTF_OpenFont("./media/font.ttf", 40)))
+    exit_msg(1, "Cannot open the requested font. :(");*/
+	/*
+  this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
+  this->monitor_height = this->hardware->current_h;
+  this->monitor_width = this->hardware->current_w;*/
+
+  //SDL_WM_SetIcon(SDL_LoadBMP("./media/icon.bmp"), NULL);
+  this->screen = SDL_SetVideoMode(this->getWidth(), this->getHeight(), 32, flags);
+  if (!this->screen)
+	  throw Exception(SDL_GetError());
+  MainScreen = this->screen;
+  SDL_WM_SetCaption(title.c_str(), NULL);
+  //SDL_ShowCursor(SDL_DISABLE);
 }
 
 SDLDisplay::~SDLDisplay()
 {
-  
+  SDL_FreeSurface(this->screen);
+  /*TTF_CloseFont(this->font);
+  TTF_Quit();*/
+  SDL_Quit();
 }
 
-void SDLDisplay::init(void)
+void SDLDisplay::EnableTransparentWindows(void)
 {
-  
+    SDL_SysWMinfo	info;
+	HWND			hwnd;
+
+    SDL_VERSION(&info.version);
+    if (SDL_GetWMInfo(&info))
+        hwnd = info.window;
+    SetWindowLong(hwnd, GWL_EXSTYLE, GetWindowLong(hwnd, GWL_EXSTYLE) | WS_EX_LAYERED);
+    SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 1, LWA_COLORKEY);
 }
 
-void SDLDisplay::refresh(void)
+void SDLDisplay::Clear(void)
 {
-  
+	SDL_FillRect(this->screen, NULL, SDL_MapRGB(this->screen->format, 0, 0, 0));
 }
 
-eKey SDLDisplay::pressedKey(void)
+void SDLDisplay::Refresh(void)
 {
-	return (ESC);
+	SDL_Flip(this->screen);
+	SDL_Delay(10);
+}
+
+eEvent SDLDisplay::HandleEvents(void)
+{
+  SDL_PollEvent(&this->event);
+
+  if (this->event.type == SDL_QUIT)
+    return (QUIT);
+  if (this->event.type == SDL_VIDEORESIZE)
+    return (RESIZE);
+  return (NOEVENT);
+}
+
+eKey SDLDisplay::PressedKey(void)
+{
+	Uint8 *keys;
+
+	if (this->event.type == SDL_KEYDOWN)
+	{
+		keys = SDL_GetKeyState(NULL);
+		if (keys[SDLK_ESCAPE])
+			return (ESC);
+	}
+	return (NOKEY);
+}
+
+// Getters
+bool			SDLDisplay::getFullscreen(void) const
+{
+	return (this->fullscreen);
+}
+
+unsigned int	SDLDisplay::getHeight(void) const
+{
+	return (this->height);
+}
+
+unsigned int	SDLDisplay::getWidth(void) const
+{
+	return (this->width);
+}
+
+
+// Setters
+void			SDLDisplay::setFullscreen(bool value)
+{
+	this->fullscreen = value;
+}
+
+void			SDLDisplay::setHeight(unsigned int value)
+{
+	this->height = value;
+}
+
+void			SDLDisplay::setWidth(unsigned int value)
+{
+	this->width = value;
 }
