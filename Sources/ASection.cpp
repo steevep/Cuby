@@ -1,12 +1,6 @@
 #include "ASection.hpp"
 
-ASection::ASection(eSection _ASection, Ressources *_ressources)
-{
-	this->section = _ASection;
-	this->ressources = _ressources;
-}
-
-ASection::~ASection()
+ASection::~ASection(void)
 {
   std::list<AObject *>::iterator it;
   this->DeleteObjects();

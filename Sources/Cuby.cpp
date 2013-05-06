@@ -4,9 +4,9 @@ Cuby::Cuby(void)
 {
 	// Init Attributes
 	this->quit = false;
-	this->ressources = new Ressources();
 	this->settings = new Settings("xml configuration file");
 	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
+	this->ressources = new Ressources(this->display, this->settings);
 
 	// Doing some stuff
 	this->display->EnableTransparentWindows();
@@ -53,21 +53,6 @@ void Cuby::DrawSection(void)
 	}
 }
 
-ASection * Cuby::GetSection(eSection section)
-{
-	std::list<ASection *>::iterator it;
-
-	it = this->sections.begin();
-	while (it != this->sections.end())
-	{
-		if ((*it)->getSection() == section)
-			return ((*it));
-		it++;
-	}
-	exit(11);
-	return (NULL);
-}
-
 void Cuby::HandleEvents(void)
 {
 	eKey	pressed;
@@ -87,42 +72,10 @@ void Cuby::HandleEvents(void)
 	}
 }
 
-void Cuby::CreateBlocks(eSection _section)
-{
-	ASection	*section;
-	unsigned int x = 0;
-	unsigned int y = 0;
-	unsigned int vertical_blocks;
-	unsigned int horizontal_blocks;
-
-	vertical_blocks = this->display->getHeight() / this->settings->getBlocksize();
-	horizontal_blocks = this->display->getWidth() / this->settings->getBlocksize();
-	section = this->GetSection(_section);
-	if (section != NULL)
-		while (y <= vertical_blocks)
-		{
-			x = 0;
-			while (x < horizontal_blocks)
-			{
-				section->AddObject(new Block(this->settings->getBlocksize(), x, y));
-				x++;
-			}
-			y++;
-		}
-}
-
 void Cuby::Run(void)
 {
-	ASection *section;
-
 	this->current = SCREENSAVER;
-	section = new ASection(SCREENSAVER, this->ressources);
-
-	this->sections.push_back(section);
-	this->sections.push_back(new ASection(HOME, this->ressources));
-	this->sections.push_back(new ASection(LOGO, this->ressources));
-
-	this->CreateBlocks(SCREENSAVER);
+	this->sections.push_back(new ScreenSaver(this->ressources));
 	while (!this->quit)
 	{
 		this->display->Clear();

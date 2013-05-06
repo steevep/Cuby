@@ -18,6 +18,7 @@
     <ClInclude Include="Headers\Cuby.hpp" />
     <ClInclude Include="Headers\Exception.hpp" />
     <ClInclude Include="Headers\Ressources.hpp" />
+    <ClInclude Include="Headers\ScreenSaver.hpp" />
     <ClInclude Include="Headers\SDLDisplay.hpp" />
     <ClInclude Include="Headers\Settings.hpp" />
   </ItemGroup>
@@ -29,6 +30,7 @@
     <ClCompile Include="Sources\Cuby.cpp" />
     <ClCompile Include="Sources\Exception.cpp" />
     <ClCompile Include="Sources\Ressources.cpp" />
+    <ClCompile Include="Sources\ScreenSaver.cpp" />
     <ClCompile Include="Sources\SDLDisplay.cpp" />
     <ClCompile Include="Sources\Settings.cpp" />
   </ItemGroup>

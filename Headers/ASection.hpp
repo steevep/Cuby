@@ -18,25 +18,24 @@ class		ASection
 {
 	// Constructor and destructor
 public:
-	ASection(eSection, Ressources *);
-	~ASection(void);
+	virtual ~ASection(void);
 
 	// Members functions
 public:
-	void AddObject(AObject *);
-	void AddObjects(std::list<AObject *> &);
-	void DeleteObjects(void);
-	void ClearObjects(void);
-	void DrawObjects(void);
-	void UpdateObjects(void);
+	virtual void AddObject(AObject *);
+	virtual void AddObjects(std::list<AObject *> &);
+	virtual void DeleteObjects(void);
+	virtual void ClearObjects(void);
+	virtual void DrawObjects(void);
+	virtual void UpdateObjects(void);
 
 	// Getters
 public:
-	eSection getSection(void) const;
+	virtual eSection getSection(void) const;
 
 	// Setters
 public:
-	void setSection(eSection);
+	virtual void setSection(eSection);
 
 	// Attributes
 protected:

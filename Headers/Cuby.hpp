@@ -12,8 +12,9 @@
 #include "Exception.hpp"
 #include "SDLDisplay.hpp"
 #include "Ressources.hpp"
+#include "ScreenSaver.hpp"
 
-class Cuby
+class		Cuby
 {
 	// Constructor and destructor
 public:
@@ -26,8 +27,6 @@ public:
 	void		DrawSection(void);
 	void		UpdateSection(void);
 	void		HandleEvents(void);
-	void		CreateBlocks(eSection);
-	ASection *	GetSection(eSection);
 
 	// Attributes
 private:
@@ -35,6 +34,6 @@ private:
 	eSection				current;
 	SDLDisplay				*display;
 	Settings				*settings;
-	std::list<ASection *>	sections;
 	Ressources				*ressources;
+	std::list<ASection *>	sections;
 };
