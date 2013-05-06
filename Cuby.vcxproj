@@ -10,6 +10,28 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\AObject.hpp" />
+    <ClInclude Include="Headers\ASection.hpp" />
+    <ClInclude Include="Headers\Block.hpp" />
+    <ClInclude Include="Headers\Colors.hpp" />
+    <ClInclude Include="Headers\Cuby.hpp" />
+    <ClInclude Include="Headers\Exception.hpp" />
+    <ClInclude Include="Headers\Ressources.hpp" />
+    <ClInclude Include="Headers\SDLDisplay.hpp" />
+    <ClInclude Include="Headers\Settings.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sources\AObject.cpp" />
+    <ClCompile Include="Sources\ASection.cpp" />
+    <ClCompile Include="Sources\Block.cpp" />
+    <ClCompile Include="Sources\Colors.cpp" />
+    <ClCompile Include="Sources\Cuby.cpp" />
+    <ClCompile Include="Sources\Exception.cpp" />
+    <ClCompile Include="Sources\Ressources.cpp" />
+    <ClCompile Include="Sources\SDLDisplay.cpp" />
+    <ClCompile Include="Sources\Settings.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8F26A143-1333-4DB5-A9E9-ED6098C19B16}</ProjectGuid>
     <RootNamespace>Cuby</RootNamespace>
@@ -43,7 +65,7 @@
     <LibraryPath>C:\Applications\SDL\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Applications\SDL\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Applications\SDL\include;$(SolutionDir)\Headers;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Applications\SDL\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -75,28 +97,6 @@
       <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="AObject.cpp" />
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="Colors.cpp" />
-    <ClCompile Include="Cuby.cpp" />
-    <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="Ressources.cpp" />
-    <ClCompile Include="SDLDisplay.cpp" />
-    <ClCompile Include="ASection.cpp" />
-    <ClCompile Include="Settings.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AObject.hpp" />
-    <ClInclude Include="Block.hpp" />
-    <ClInclude Include="Colors.hpp" />
-    <ClInclude Include="Cuby.hpp" />
-    <ClInclude Include="Exception.hpp" />
-    <ClInclude Include="Ressources.hpp" />
-    <ClInclude Include="SDLDisplay.hpp" />
-    <ClInclude Include="ASection.hpp" />
-    <ClInclude Include="Settings.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
