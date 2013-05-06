@@ -1,5 +1,5 @@
-#ifndef		ColorsCollection_HPP
-# define	ColorsCollection_HPP
+#ifndef		COLORS_HPP
+# define	COLORS_HPP
 
 // Type definitions
 typedef enum
@@ -55,12 +55,12 @@ private:
 	eColorGroup			colorGroup;
 };
 
-class		ColorsCollection
+class		Colors
 {
 	// Constructor and destructor
 public:
-	ColorsCollection(void);
-	~ColorsCollection(void);
+	Colors(void);
+	~Colors(void);
 
 	// Members functions
 public:

@@ -1,4 +1,4 @@
-#include "ColorsCollection.hpp"
+#include "Colors.hpp"
 
 Color::Color(eColorGroup _colorgroup, SDL_Color & _color)
 {
@@ -39,28 +39,28 @@ void				Color::setColorGroup(eColorGroup _colorgroup)
 	this->colorGroup = _colorgroup;
 }
 
-ColorsCollection::ColorsCollection(void)
+Colors::Colors(void)
 {
 
 }
 
-ColorsCollection::~ColorsCollection(void)
+Colors::~Colors(void)
 {
 	this->DeleteColors();
 }
 
 // Members functions
-void	ColorsCollection::AddColor(Color *)
+void	Colors::AddColor(Color *)
 {
 
 }
 
-void	ColorsCollection::AddColors(std::list<Color *> &)
+void	Colors::AddColors(std::list<Color *> &)
 {
 
 }
 
-void	ColorsCollection::DeleteColors(void)
+void	Colors::DeleteColors(void)
 {
 	std::list<Color *>::iterator it;
 
@@ -72,12 +72,12 @@ void	ColorsCollection::DeleteColors(void)
 	}
 }
 
-void	ColorsCollection::ClearColors(void)
+void	Colors::ClearColors(void)
 {
 	this->colors.clear();
 }
 
-Color * ColorsCollection::GetRandomColor(void)
+Color * Colors::GetRandomColor(void)
 {
 	std::list<Color *>::iterator it;
 
@@ -90,7 +90,7 @@ Color * ColorsCollection::GetRandomColor(void)
 	return (NULL);
 }
 
-Color *	ColorsCollection::GetColor(eColorGroup colorgroup)
+Color *	Colors::GetColor(eColorGroup colorgroup)
 {
 	std::list<Color *>::iterator it;
 
