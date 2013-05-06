@@ -1,5 +1,5 @@
-#ifndef		Section_HPP
-# define	Section_HPP
+#ifndef		ASECTION_HPP
+# define	ASECTION_HPP
 
 // Type definitions
 typedef enum
@@ -12,13 +12,14 @@ typedef enum
 // Includes
 #include <list>
 #include "AObject.hpp"
+#include "Ressources.hpp"
 
-class		Section
+class		ASection
 {
 	// Constructor and destructor
 public:
-	Section(eSection);
-	~Section(void);
+	ASection(eSection, Ressources *);
+	~ASection(void);
 
 	// Members functions
 public:
@@ -38,11 +39,10 @@ public:
 	void setSection(eSection);
 
 	// Attributes
-private:
+protected:
 	eSection				section;
-	unsigned int			height;
-	unsigned int			width;
 	std::list<AObject *>	objects;
+	Ressources				*ressources;
 };
 
 #endif

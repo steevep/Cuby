@@ -12,6 +12,7 @@ typedef enum
 
 // Includes
 #include "SDL.h"
+#include "Ressources.hpp"
 
 class		AObject
 {

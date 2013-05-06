@@ -4,17 +4,21 @@ Cuby::Cuby(void)
 {
 	// Init Attributes
 	this->quit = false;
+	this->ressources = new Ressources();
 	this->settings = new Settings("xml configuration file");
 	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
+
+	// Doing some stuff
 	this->display->EnableTransparentWindows();
 }
 
 Cuby::~Cuby(void)
 {
-	std::list<Section *>::iterator it;
+	std::list<ASection *>::iterator it;
 
 	delete this->display;
 	delete this->settings;
+	delete this->ressources;
 	it = this->sections.begin();
 	while (it != this->sections.end())
 	{
@@ -25,7 +29,7 @@ Cuby::~Cuby(void)
 
 void Cuby::UpdateSection(void)
 {
-	std::list<Section *>::iterator it;
+	std::list<ASection *>::iterator it;
 
 	it = this->sections.begin();
 	while (it != this->sections.end())
@@ -38,7 +42,7 @@ void Cuby::UpdateSection(void)
 
 void Cuby::DrawSection(void)
 {
-	std::list<Section *>::iterator it;
+	std::list<ASection *>::iterator it;
 
 	it = this->sections.begin();
 	while (it != this->sections.end())
@@ -49,9 +53,9 @@ void Cuby::DrawSection(void)
 	}
 }
 
-Section * Cuby::GetSection(eSection section)
+ASection * Cuby::GetSection(eSection section)
 {
-	std::list<Section *>::iterator it;
+	std::list<ASection *>::iterator it;
 
 	it = this->sections.begin();
 	while (it != this->sections.end())
@@ -85,7 +89,7 @@ void Cuby::HandleEvents(void)
 
 void Cuby::CreateBlocks(eSection _section)
 {
-	Section	*section;
+	ASection	*section;
 	unsigned int x = 0;
 	unsigned int y = 0;
 	unsigned int vertical_blocks;
@@ -109,14 +113,14 @@ void Cuby::CreateBlocks(eSection _section)
 
 void Cuby::Run(void)
 {
-	Section *section;
+	ASection *section;
 
 	this->current = SCREENSAVER;
-	section = new Section(SCREENSAVER);
+	section = new ASection(SCREENSAVER, this->ressources);
 
 	this->sections.push_back(section);
-	this->sections.push_back(new Section(HOME));
-	this->sections.push_back(new Section(LOGO));
+	this->sections.push_back(new ASection(HOME, this->ressources));
+	this->sections.push_back(new ASection(LOGO, this->ressources));
 
 	this->CreateBlocks(SCREENSAVER);
 	while (!this->quit)

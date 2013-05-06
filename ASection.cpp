@@ -1,23 +1,24 @@
-#include "Section.hpp"
+#include "ASection.hpp"
 
-Section::Section(eSection _section)
+ASection::ASection(eSection _ASection, Ressources *_ressources)
 {
-	this->section = _section;
+	this->section = _ASection;
+	this->ressources = _ressources;
 }
 
-Section::~Section()
+ASection::~ASection()
 {
   std::list<AObject *>::iterator it;
   this->DeleteObjects();
 }
 
 // Members functions
-void Section::AddObject(AObject *item)
+void ASection::AddObject(AObject *item)
 {
 	this->objects.push_back(item);
 }
 
-void Section::AddObjects(std::list<AObject *> & items)
+void ASection::AddObjects(std::list<AObject *> & items)
 {
   std::list<AObject *>::iterator it;
 
@@ -29,7 +30,7 @@ void Section::AddObjects(std::list<AObject *> & items)
     }	
 }
 
-void Section::DeleteObjects(void)
+void ASection::DeleteObjects(void)
 {
 	std::list<AObject *>::iterator it;
 
@@ -41,12 +42,12 @@ void Section::DeleteObjects(void)
     }	
 }
 
-void Section::ClearObjects(void)
+void ASection::ClearObjects(void)
 {
 	this->objects.clear();
 }
 
-void Section::DrawObjects(void)
+void ASection::DrawObjects(void)
 {
 	std::list<AObject *>::iterator it;
 
@@ -58,7 +59,7 @@ void Section::DrawObjects(void)
     }	
 }
 
-void Section::UpdateObjects(void)
+void ASection::UpdateObjects(void)
 {
 	std::list<AObject *>::iterator it;
 
@@ -71,13 +72,13 @@ void Section::UpdateObjects(void)
 }
 
 // Getters
-eSection Section::getSection(void) const
+eSection ASection::getSection(void) const
 {
 	return (this->section);
 }
 
 // Setters
-void Section::setSection(eSection value)
+void ASection::setSection(eSection value)
 {
 	this->section = value;
 }

@@ -27,16 +27,19 @@
     <ClCompile Include="SDLDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Section.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ColorsCollection.cpp">
+    <ClCompile Include="Colors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ASection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ressources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,16 +56,19 @@
     <ClInclude Include="SDLDisplay.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Section.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AObject.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Block.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ColorsCollection.hpp">
+    <ClInclude Include="Colors.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ASection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ressources.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

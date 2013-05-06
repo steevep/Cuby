@@ -6,10 +6,12 @@
 // Includes
 #include <iostream>
 #include "Block.hpp"
-#include "Section.hpp"
+#include "Colors.hpp"
+#include "ASection.hpp"
 #include "Settings.hpp"
 #include "Exception.hpp"
 #include "SDLDisplay.hpp"
+#include "Ressources.hpp"
 
 class Cuby
 {
@@ -25,7 +27,7 @@ public:
 	void		UpdateSection(void);
 	void		HandleEvents(void);
 	void		CreateBlocks(eSection);
-	Section *	GetSection(eSection);
+	ASection *	GetSection(eSection);
 
 	// Attributes
 private:
@@ -33,5 +35,6 @@ private:
 	eSection				current;
 	SDLDisplay				*display;
 	Settings				*settings;
-	std::list<Section *>	sections;
+	std::list<ASection *>	sections;
+	Ressources				*ressources;
 };

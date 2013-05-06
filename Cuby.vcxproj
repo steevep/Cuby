@@ -78,21 +78,23 @@
   <ItemGroup>
     <ClCompile Include="AObject.cpp" />
     <ClCompile Include="Block.cpp" />
-    <ClCompile Include="ColorsCollection.cpp" />
+    <ClCompile Include="Colors.cpp" />
     <ClCompile Include="Cuby.cpp" />
     <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="Ressources.cpp" />
     <ClCompile Include="SDLDisplay.cpp" />
-    <ClCompile Include="Section.cpp" />
+    <ClCompile Include="ASection.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AObject.hpp" />
     <ClInclude Include="Block.hpp" />
-    <ClInclude Include="ColorsCollection.hpp" />
+    <ClInclude Include="Colors.hpp" />
     <ClInclude Include="Cuby.hpp" />
     <ClInclude Include="Exception.hpp" />
+    <ClInclude Include="Ressources.hpp" />
     <ClInclude Include="SDLDisplay.hpp" />
-    <ClInclude Include="Section.hpp" />
+    <ClInclude Include="ASection.hpp" />
     <ClInclude Include="Settings.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
