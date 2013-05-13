@@ -65,6 +65,20 @@ void ASection::UpdateObjects(void)
     }	
 }
 
+AObject		*ASection::GetObject(unsigned int x, unsigned int y)
+{
+	std::list<AObject *>::iterator it;
+
+	it = this->objects.begin();
+	while (it != this->objects.end())
+	{
+		if(((*it)->getPosition().x == x) && ((*it)->getPosition().y == y))
+			return (*it);
+		it++;
+    }
+	return (NULL);
+}
+
 // Getters
 eSection ASection::getSection(void) const
 {

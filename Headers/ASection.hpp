@@ -20,18 +20,24 @@ class		ASection
 public:
 	virtual ~ASection(void);
 
+	// Pure members functions
+public:
+	virtual void Draw(void) = 0;
+	virtual void Update(void) = 0;
+
 	// Members functions
 public:
-	virtual void AddObject(AObject *);
-	virtual void AddObjects(std::list<AObject *> &);
-	virtual void DeleteObjects(void);
-	virtual void ClearObjects(void);
-	virtual void DrawObjects(void);
-	virtual void UpdateObjects(void);
+	virtual void		AddObject(AObject *);
+	virtual void		AddObjects(std::list<AObject *> &);
+	virtual void		DeleteObjects(void);
+	virtual void		ClearObjects(void);
+	virtual void		DrawObjects(void);
+	virtual void		UpdateObjects(void);
 
 	// Getters
 public:
-	virtual eSection getSection(void) const;
+	virtual eSection	getSection(void) const;
+	virtual AObject		*GetObject(unsigned int, unsigned int);
 
 	// Setters
 public:
