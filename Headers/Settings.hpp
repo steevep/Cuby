@@ -31,10 +31,10 @@ public:
 	// Attributes
 private:
 	bool			fullscreen;
+	unsigned int	blocksize;
 	unsigned int	height;
 	unsigned int	width;
-	unsigned int	blocksize;
-
+	unsigned int	delay;
 };
 
 #endif

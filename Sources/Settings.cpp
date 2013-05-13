@@ -2,6 +2,7 @@
 
 Settings::Settings(const std::string & configurationFile)
 {
+	this->delay = 500;
 	this->height = 600;
 	this->width = 1024;
 	this->blocksize = 40;
