@@ -35,7 +35,10 @@ void Cuby::UpdateSection(void)
 	while (it != this->sections.end())
 	{
 		if ((*it)->getSection() == this->current)
+		{
+			(*it)->Update();
 			(*it)->UpdateObjects();
+		}
 		it++;
 	}
 }
@@ -48,7 +51,10 @@ void Cuby::DrawSection(void)
 	while (it != this->sections.end())
 	{
 		if ((*it)->getSection() == this->current)
+		{
+			(*it)->Draw();
 			(*it)->DrawObjects();
+		}
 		it++;
 	}
 }

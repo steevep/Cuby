@@ -11,18 +11,26 @@ class		Block : public AObject
 {
 	// Constructor and destructor
 public:
-  Block(unsigned int, unsigned int, unsigned int);
-  Block();
-  ~Block();
+	Block(unsigned int, unsigned int, unsigned int);
+	~Block();
 
   // Members functions
 public:
-  void		Update(void);
-  void		Draw(void);
+	void			Update(void);
+	void			Draw(void);
+
+	// Getters
+public:
+	bool			GetHidden(void) const;
+
+	// Setters
+public:
+	void			SetHidden(bool);
 
     // Attributes
 private:
-  SDL_Surface  	*image;
+	bool			hidden;
+	SDL_Surface  	*image;
 };
 
 #endif

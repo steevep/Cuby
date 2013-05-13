@@ -12,6 +12,11 @@ public:
 	ScreenSaver(Ressources *_ressources);
 	~ScreenSaver(void);
 
+	// Members functions (ASection)
+public:
+	virtual void Draw(void);
+	virtual void Update(void);
+
 	// Attributes
 public:
 	void		CreateBlocks(void);
