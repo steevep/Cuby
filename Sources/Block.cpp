@@ -2,7 +2,7 @@
 
 extern SDL_Surface *MainScreen;
 
-int vr = 0;
+int vr = 20;
 
 Block::Block(unsigned int blocksize, unsigned int x, unsigned int y)
 {
@@ -21,9 +21,16 @@ Block::~Block()
 
 void	Block::Update(void)
 {  
+	auto x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+	if ((x >= this->position.x && x <= (this->position.x + this->position.w)) &&
+		(y >= this->position.y && y <= (this->position.y + this->position.w)))
+		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, vr++, 10, 50));
+
 	vr++;
 	if (this->hidden == false)
-		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, vr, 0, 0));
+		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, 0,  vr, vr));
 }
 
 // Getters

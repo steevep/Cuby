@@ -80,7 +80,7 @@ void SDLDisplay::Clear(void)
 void SDLDisplay::Refresh(void)
 {
 	SDL_Flip(this->screen);
-	SDL_Delay(10);
+	SDL_Delay(20);
 }
 
 eEvent SDLDisplay::HandleEvents(void)

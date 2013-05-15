@@ -25,7 +25,7 @@ void ScreenSaver::Update(void)
 	unsigned int vertical_blocks = this->ressources->display->getHeight() / this->ressources->settings->getBlocksize();
 	unsigned int horizontal_blocks = this->ressources->display->getWidth() / this->ressources->settings->getBlocksize();
 
-	if (x < horizontal_blocks && y < vertical_blocks)
+	if (x < horizontal_blocks && y <= vertical_blocks)
 	{
 		item = this->GetObject(x * this->ressources->settings->getBlocksize(), y * this->ressources->settings->getBlocksize());
 		if (item != NULL)
