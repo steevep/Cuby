@@ -15,6 +15,7 @@ public:
 
 	// Attributes
 public:
+	int					current_section;
 	Colors				*colors;
 	SDLDisplay			*display;
 	Settings			*settings;

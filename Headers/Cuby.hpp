@@ -31,7 +31,6 @@ public:
 	// Attributes
 private:
 	bool					quit;
-	eSection				current;
 	SDLDisplay				*display;
 	Settings				*settings;
 	Ressources				*ressources;

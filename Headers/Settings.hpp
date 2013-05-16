@@ -1,5 +1,5 @@
-#ifndef		Settings_HPP
-# define	Settings_HPP
+#ifndef		SETTINGS_HPP
+# define	SETTINGS_HPP
 
 // Includes
 #include <string>

@@ -11,7 +11,7 @@ Block::Block(unsigned int blocksize, unsigned int x, unsigned int y)
 	this->position.y = y * blocksize;
 	this->position.w = blocksize;
 	this->position.h = blocksize;
-	this->hidden = false;
+	this->hidden = true;
 }
 
 Block::~Block()
@@ -27,9 +27,8 @@ void	Block::Update(void)
 	if ((x >= this->position.x && x <= (this->position.x + this->position.w)) &&
 		(y >= this->position.y && y <= (this->position.y + this->position.w)))
 		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, vr++, 10, 50));
-
 	vr++;
-	if (this->hidden == false)
+	if (this->hidden == true)
 		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, 0,  vr, vr));
 }
 
@@ -47,6 +46,6 @@ void			Block::SetHidden(bool value)
 
 void		Block::Draw(void)
 {
-	if (this->hidden)
+	if (!this->hidden)
 		SDL_BlitSurface(this->image, NULL, MainScreen, &this->position);
 }

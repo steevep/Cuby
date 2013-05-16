@@ -1,5 +1,5 @@
-#ifndef		BLOCK_HPP_
-# define	BLOCK_HPP_
+#ifndef		BLOCK_HPP
+# define	BLOCK_HPP
 
 // Defines
 # define	BLOCK_SIZE	40

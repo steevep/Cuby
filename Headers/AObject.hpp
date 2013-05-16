@@ -1,5 +1,5 @@
-#ifndef		AObject_HPP
-# define	AObject_HPP
+#ifndef		AOBJECT_HPP
+# define	AOBJECT_HPP
 
 // Type definitions
 typedef enum

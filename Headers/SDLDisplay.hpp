@@ -42,7 +42,7 @@ public:
 	eEvent		HandleEvents(void);
 	void		EnableTransparentWindows(void);
 
-// Getters
+	// Getters
 	bool			getFullscreen(void) const;
 	unsigned int	getHeight(void) const;
 	unsigned int	getWidth(void) const;

@@ -34,7 +34,7 @@ void Cuby::UpdateSection(void)
 	it = this->sections.begin();
 	while (it != this->sections.end())
 	{
-		if ((*it)->getSection() == this->current)
+		if ((*it)->getSection() == this->ressources->current_section)
 		{
 			(*it)->Update();
 			(*it)->UpdateObjects();
@@ -50,7 +50,7 @@ void Cuby::DrawSection(void)
 	it = this->sections.begin();
 	while (it != this->sections.end())
 	{
-		if ((*it)->getSection() == this->current)
+		if ((*it)->getSection() == this->ressources->current_section)
 		{
 			(*it)->Draw();
 			(*it)->DrawObjects();
@@ -80,7 +80,7 @@ void Cuby::HandleEvents(void)
 
 void Cuby::Run(void)
 {
-	this->current = SCREENSAVER;
+	this->ressources->current_section = SCREENSAVER;
 	this->sections.push_back(new ScreenSaver(this->ressources));
 	while (!this->quit)
 	{
