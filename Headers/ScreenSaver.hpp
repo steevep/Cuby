@@ -14,12 +14,12 @@ public:
 
 	// Members functions (ASection)
 public:
-	virtual void Draw(void);
-	virtual void Update(void);
+	virtual void	Draw(void);
+	virtual void	Update(void);
 
-	// Attributes
+	// Members functions
 public:
-	void		CreateBlocks(void);
+	void			CreateBlocks(void);
 };
 
 #endif

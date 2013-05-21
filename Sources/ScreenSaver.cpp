@@ -19,7 +19,7 @@ void ScreenSaver::Draw(void)
 
 void ScreenSaver::Update(void)
 {
-	/*AObject				*item;
+	AObject				*item;
 	static unsigned int x = 0;
 	static unsigned int y = 0;
 	unsigned int vertical_blocks = this->ressources->display->getHeight() / this->ressources->settings->getBlocksize();
@@ -38,7 +38,9 @@ void ScreenSaver::Update(void)
 	{
 		y++;
 		x = 0;
-	}*/
+	}
+
+	this->ressources->offset_width++;
 }
 
 void ScreenSaver::CreateBlocks(void)

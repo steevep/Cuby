@@ -20,6 +20,9 @@ public:
 	SDLDisplay			*display;
 	Settings			*settings;
 	// Surfaces			*surfaces;
+
+	unsigned int	offset_height;
+	unsigned int	offset_width;
 };
 
 #endif

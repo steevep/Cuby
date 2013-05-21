@@ -1,7 +1,5 @@
 #include "SDLDisplay.hpp"
 
-SDL_Surface *MainScreen = NULL;
-
 SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 {
 	// Temporary variables
@@ -47,7 +45,6 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 		this->screen = SDL_SetVideoMode(this->getWidth(), this->getHeight(), 32, flags);
 	if (!this->screen)
 		throw Exception(SDL_GetError());
-	MainScreen = this->screen;
 	SDL_WM_SetCaption(title.c_str(), NULL);
 	//SDL_ShowCursor(SDL_DISABLE);
 }
@@ -123,6 +120,10 @@ unsigned int	SDLDisplay::getWidth(void) const
 	return (this->width);
 }
 
+SDL_Surface		*SDLDisplay::getScreen(void)
+{
+	return (this->screen);
+}
 
 // Setters
 void			SDLDisplay::setFullscreen(bool value)

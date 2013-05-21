@@ -46,6 +46,7 @@ public:
 	bool			getFullscreen(void) const;
 	unsigned int	getHeight(void) const;
 	unsigned int	getWidth(void) const;
+	SDL_Surface		*getScreen(void);
 
 	// Setters
 	void			setFullscreen(bool);
