@@ -40,7 +40,7 @@ void ScreenSaver::Update(void)
 		x = 0;
 	}
 
-	this->ressources->offset_width++;
+	//this->ressources->offset_width++;
 }
 
 void ScreenSaver::CreateBlocks(void)
