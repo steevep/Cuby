@@ -4,26 +4,22 @@ Cuby
 
 ![Work in progress](Assets/DEMO_WIP.png "Demo cuby (Work in progress)")
 
-----
-
-## How to use
+### How to use
 
 * (Work in progress)
 
-## Setting options (that will be) available
+### Setting options (that will be) available
 
 * Initial position : top, bottom, left, right or random
 * Apparition mode : fade-in, rebound, one-way (?)
 * Color settings : rainbow, color groups or random
 * Animation speed (mouse scroll)
 
-## Release History
+### Release history
 
  * **v0.1** - (Work in progress)
 
-----
-
-## Author
+### Author
 > Steeve Pommier
 
 * [Blog](http://www.mncorp.net)
