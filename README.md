@@ -1,8 +1,11 @@
 Cuby
 ====
 > A screensaver with isometric cube and animations.
+
 ![Work in progress](Assets/DEMO_WIP.png "Demo cuby (Work in progress)")
+
 ----
+
 ## How to use
 
 * (Work in progress)
