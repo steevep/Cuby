@@ -1,12 +1,8 @@
 Cuby
 ====
 > A screensaver with isometric cube and animations.
-
-----
-## Screenshoots
-
 ![Work in progress](Assets/DEMO_WIP.png "Demo cuby (Work in progress)")
-
+----
 ## How to use
 
 * (Work in progress)
@@ -20,7 +16,7 @@ Cuby
 
 ## Release History
 
- * **v0.1** - Work in progress
+ * **v0.1** - (Work in progress)
 
 ----
 
