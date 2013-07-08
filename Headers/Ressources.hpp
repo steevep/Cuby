@@ -2,15 +2,15 @@
 # define	RESSOURCES_HPP
 
 // Includes
-#include "Colors.hpp"
-#include "Settings.hpp"
-#include "SDLDisplay.hpp"
+#include	"Colors.hpp"
+#include	"Settings.hpp"
+#include	"SDLDisplay.hpp"
 
 class		Ressources
 {
 	// Constructor and destructor
 public:
-	Ressources(SDLDisplay *, Settings *);
+	Ressources(void);
 	~Ressources(void);
 
 	// Attributes
@@ -19,6 +19,7 @@ public:
 	Colors				*colors;
 	SDLDisplay			*display;
 	Settings			*settings;
+	bool				image_change;
 	// Surfaces			*surfaces;
 
 	unsigned int	offset_height;

@@ -1,23 +1,26 @@
-#ifndef		BLOCK_HPP
-# define	BLOCK_HPP
-
-// Defines
-# define	BLOCK_SIZE	40
+#ifndef		FPS_HPP
+# define	FPS_HPP
 
 // Includes
 # include	"AObject.hpp"
 
-class		Block : public AObject
+class		FPS : public AObject
 {
 	// Constructor and destructor
 public:
-	Block(unsigned int, unsigned int, unsigned int);
-	~Block();
+	FPS(bool);
+	FPS(void);
+	~FPS(void);
 
   // Pure methods via AObject
 public:
 	void			Update(void);
 	void			Draw(void);
+
+	// Attributes
+private:
+	int				img;
+	int				last;
 };
 
 #endif

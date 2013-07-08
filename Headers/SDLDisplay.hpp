@@ -21,6 +21,7 @@ typedef enum
 
 // Includes
 # include "SDL.h"
+# include "SDL_ttf.h"
 # include "Settings.hpp"
 # include "Exception.hpp"
 
@@ -46,7 +47,9 @@ public:
 	bool			getFullscreen(void) const;
 	unsigned int	getHeight(void) const;
 	unsigned int	getWidth(void) const;
+	TTF_Font			*getFont();
 	SDL_Surface		*getScreen(void);
+	SDL_Event		&getEvent(void);
 
 	// Setters
 	void			setFullscreen(bool);
@@ -58,6 +61,7 @@ private:
 	bool			fullscreen;
 	unsigned int	height;
 	unsigned int	width;
+	TTF_Font		*font;
 	SDL_VideoInfo	*hardware;
 	SDL_Surface		*screen;
 	SDL_Event		event;

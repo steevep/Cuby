@@ -27,12 +27,12 @@ public:
 
 	// Members functions
 public:
-	virtual void		AddObject(AObject *);
 	virtual void		AddObjects(std::list<AObject *> &);
+	virtual void		AddObject(AObject *);
+	virtual void		UpdateObjects(void);
 	virtual void		DeleteObjects(void);
 	virtual void		ClearObjects(void);
 	virtual void		DrawObjects(void);
-	virtual void		UpdateObjects(void);
 
 	// Getters
 public:

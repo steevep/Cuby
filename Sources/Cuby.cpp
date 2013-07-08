@@ -4,91 +4,53 @@ Cuby::Cuby(void)
 {
 	// Init Attributes
 	this->quit = false;
-	this->settings = new Settings("xml configuration file");
-	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
-	this->ressources = new Ressources(this->display, this->settings);
+	this->ressources = new Ressources();
 
 	// Doing some stuff
-	this->display->EnableTransparentWindows();
+	this->ressources->display->EnableTransparentWindows();
 }
 
 Cuby::~Cuby(void)
 {
 	std::list<ASection *>::iterator it;
+	std::list<AObject *>::iterator	it_ob;
 
 	delete this->display;
 	delete this->settings;
 	delete this->ressources;
 	it = this->sections.begin();
+	it_ob = this->objects.begin();
 	while (it != this->sections.end())
 	{
 		delete (*it);
+		it = this->sections.erase(it);
 		it++;
 	}
-}
-
-void Cuby::UpdateSection(void)
-{
-	std::list<ASection *>::iterator it;
-
-	it = this->sections.begin();
-	while (it != this->sections.end())
+	while (it_ob != this->objects.end())
 	{
-		if ((*it)->getSection() == this->ressources->current_section)
-		{
-			(*it)->Update();
-			(*it)->UpdateObjects();
-		}
+		delete (*it_ob);
+		it_ob = this->objects.erase(it_ob);
 		it++;
-	}
-}
-
-void Cuby::DrawSection(void)
-{
-	std::list<ASection *>::iterator it;
-
-	it = this->sections.begin();
-	while (it != this->sections.end())
-	{
-		if ((*it)->getSection() == this->ressources->current_section)
-		{
-			(*it)->Draw();
-			(*it)->DrawObjects();
-		}
-		it++;
-	}
-}
-
-void Cuby::HandleEvents(void)
-{
-	eKey	pressed;
-	eEvent	event;
-
-	event = this->display->HandleEvents();
-	pressed = this->display->PressedKey();
-	if (pressed != NOKEY)
-	{
-		if (pressed == ESC)
-			this->quit = true;
-	}
-	if (event != NOEVENT)
-	{
-		if (event == QUIT)
-			this->quit = true;
 	}
 }
 
 void Cuby::Run(void)
 {
+	// Push Objects / Sections
+	this->objects.push_back(new FPS());
 	this->ressources->current_section = SCREENSAVER;
 	this->sections.push_back(new ScreenSaver(this->ressources));
+
+	// Runtime loop
 	while (!this->quit)
 	{
-		this->display->Clear();
+		this->ressources->display->Clear();
 		this->HandleEvents();
+		this->UpdateObjects();
 		this->UpdateSection();
 		this->DrawSection();
-		this->display->Refresh();
+		this->DrawObjects();
+		this->ressources->display->Refresh();
 	}
 }
 

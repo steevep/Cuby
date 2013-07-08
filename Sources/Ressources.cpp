@@ -1,15 +1,16 @@
-#include "Ressources.hpp"
+#include "Cuby.hpp"
 
 Ressources *ressources;
 
-Ressources::Ressources(SDLDisplay *_display, Settings *_settings)
+Ressources::Ressources(void)
 {
-	// Set or create ressources
+	// Create ressources
+	this->settings = new Settings("xml configuration file");
+	this->display = new SDLDisplay(PROJECT_NAME, this->settings);
 	this->colors = new Colors();
-	this->settings = _settings;
-	this->display = _display;
 
 	// Init ressources
+	this->image_change = true;
 	this->offset_height = 0;
 	this->offset_width = 0;
 

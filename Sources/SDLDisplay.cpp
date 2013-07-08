@@ -23,12 +23,13 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 
 	this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
 
-	/*if (TTF_Init() == -1)
-	throw Exception("TTF Init failed. :(");
-	if (!(this->font = TTF_OpenFont("./media/font.ttf", 40)))
-	exit_msg(1, "Cannot open the requested font. :(");*/
-	/*
-	this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
+	if (TTF_Init() == -1)
+		throw Exception("TTF Init failed. :(");
+
+	if (!(this->font = TTF_OpenFont("Assets/font.ttf", 32)))
+		throw Exception("Cannot open the requested font. :(");
+
+	/* this->hardware = (SDL_VideoInfo *)SDL_GetVideoInfo();
 	this->monitor_height = this->hardware->current_h;
 	this->monitor_width = this->hardware->current_w;*/
 
@@ -52,8 +53,8 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 SDLDisplay::~SDLDisplay()
 {
   SDL_FreeSurface(this->screen);
-  /*TTF_CloseFont(this->font);
-  TTF_Quit();*/
+  TTF_CloseFont(this->font);
+  TTF_Quit();
   SDL_Quit();
 }
 
@@ -120,9 +121,19 @@ unsigned int	SDLDisplay::getWidth(void) const
 	return (this->width);
 }
 
+TTF_Font		*SDLDisplay::getFont(void)
+{
+	return (this->font);
+}
+
 SDL_Surface		*SDLDisplay::getScreen(void)
 {
 	return (this->screen);
+}
+
+SDL_Event		&SDLDisplay::getEvent(void)
+{
+	return (this->event);
 }
 
 // Setters

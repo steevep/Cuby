@@ -16,7 +16,8 @@ Block::Block(unsigned int blocksize, unsigned int x, unsigned int y)
 
 Block::~Block()
 {
-	SDL_FreeSurface(this->image);
+	if (this->image != NULL)
+		SDL_FreeSurface(this->image);
 }
 
 void	Block::Update(void)
@@ -36,18 +37,6 @@ void	Block::Update(void)
 	vr++;
 	if (this->hidden == true)
 		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, 0,  vr, vr));
-}
-
-// Getters
-bool			Block::GetHidden(void) const
-{
-	return (this->hidden);
-}
-
-// Setters
-void			Block::SetHidden(bool value)
-{
-	this->hidden = value;
 }
 
 void		Block::Draw(void)

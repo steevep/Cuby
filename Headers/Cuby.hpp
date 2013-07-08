@@ -5,6 +5,7 @@
 
 // Includes
 #include <iostream>
+#include "FPS.hpp"
 #include "Block.hpp"
 #include "Colors.hpp"
 #include "ASection.hpp"
@@ -25,7 +26,9 @@ public:
 public:
 	void		Run(void);
 	void		DrawSection(void);
+	void		DrawObjects(void);
 	void		UpdateSection(void);
+	void		UpdateObjects(void);
 	void		HandleEvents(void);
 
 	// Attributes
@@ -35,4 +38,5 @@ private:
 	Settings				*settings;
 	Ressources				*ressources;
 	std::list<ASection *>	sections;
+	std::list<AObject *>	objects;
 };

@@ -4,6 +4,7 @@
 // Type definitions
 typedef enum
 {
+	TEXT,
 	IMAGE,
 	CURSOR,
 	BLOCK,
@@ -29,16 +30,20 @@ public:
 public:
 	eType				getType(void) const;
 	const SDL_Rect &	getPosition(void) const;
+	bool				GetHidden(void) const;
 
 	// Setters
 public:
 	void				setType(eType);
+	void				SetHidden(bool);
 	void				setPosition(const SDL_Rect &);
 
 	// Attributes
 protected:
 	SDL_Rect			position;
+	SDL_Surface  		*image;
 	eType				type;
+	bool				hidden;
 };
 
 #endif
