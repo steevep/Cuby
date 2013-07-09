@@ -8,8 +8,7 @@ class		FPS : public AObject
 {
 	// Constructor and destructor
 public:
-	FPS(bool);
-	FPS(void);
+	FPS(bool hidden = true);
 	~FPS(void);
 
   // Pure methods via AObject

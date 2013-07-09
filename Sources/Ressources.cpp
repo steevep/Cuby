@@ -16,9 +16,16 @@ Ressources::Ressources(void)
 
 	// Init global variable for app ressources
 	ressources = this;
+
+	// Set some variables I'll need later
+	this->blocks_sizes = this->settings->getBlocksize();
+	this->blocks_h_count = this->display->getHeight() / this->settings->getBlocksize();
+	this->blocks_w_count = this->display->getWidth() / this->settings->getBlocksize();
 }
 
 Ressources::~Ressources(void)
 {
-	delete colors;
+	delete this->colors;
+	delete this->display;
+	delete this->settings;
 }

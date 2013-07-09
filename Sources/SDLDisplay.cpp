@@ -1,4 +1,5 @@
 #include "SDLDisplay.hpp"
+#
 
 SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 {
@@ -6,6 +7,7 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 	int	flags;
 	int	inits;
 
+	// Some test for unix
 	SDL_putenv("SDL_VIDEO_CENTERED=center");
 
 	// Init temporary variables
@@ -47,7 +49,7 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 	if (!this->screen)
 		throw Exception(SDL_GetError());
 	SDL_WM_SetCaption(title.c_str(), NULL);
-	//SDL_ShowCursor(SDL_DISABLE);
+	SDL_ShowCursor(SDL_DISABLE);
 }
 
 SDLDisplay::~SDLDisplay()
@@ -58,7 +60,7 @@ SDLDisplay::~SDLDisplay()
   SDL_Quit();
 }
 
-void SDLDisplay::EnableTransparentWindows(void)
+void SDLDisplay::EnableTransparentWindow(void)
 {
     SDL_SysWMinfo	info;
 	HWND			hwnd;
@@ -72,13 +74,13 @@ void SDLDisplay::EnableTransparentWindows(void)
 
 void SDLDisplay::Clear(void)
 {
-	SDL_FillRect(this->screen, NULL, SDL_MapRGB(this->screen->format, 0, 0, 0));
+	//SDL_FillRect(this->screen, NULL, SDL_MapRGB(this->screen->format, 0, 0, 0));
 }
 
 void SDLDisplay::Refresh(void)
 {
 	SDL_Flip(this->screen);
-	SDL_Delay(20);
+	SDL_Delay(1000000000000000);
 }
 
 eEvent SDLDisplay::HandleEvents(void)

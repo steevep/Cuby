@@ -47,8 +47,8 @@ void ScreenSaver::CreateBlocks(void)
 {
 	unsigned int x = 0;
 	unsigned int y = 0;
-	unsigned int vertical_blocks = this->ressources->display->getHeight() / this->ressources->settings->getBlocksize();
-	unsigned int horizontal_blocks = this->ressources->display->getWidth() / this->ressources->settings->getBlocksize();
+	unsigned int vertical_blocks = ressources->blocks_h_count;
+	unsigned int horizontal_blocks = ressources->blocks_w_count; 
 
 	while (y <= vertical_blocks)
 	{

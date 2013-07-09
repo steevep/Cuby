@@ -24,6 +24,11 @@ public:
 
 	unsigned int	offset_height;
 	unsigned int	offset_width;
+
+	unsigned int	blocks_total_count;
+	unsigned int	blocks_h_count;
+	unsigned int	blocks_w_count;
+	unsigned int	blocks_sizes;
 };
 
 #endif

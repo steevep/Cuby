@@ -4,14 +4,14 @@ extern Ressources  *ressources;
 
 int vr = 20;
 
-Block::Block(unsigned int blocksize, unsigned int x, unsigned int y)
+Block::Block(unsigned int blocksize, unsigned int x, unsigned int y, bool hidden_value)
 {
 	this->image = SDL_CreateRGBSurface(SDL_HWSURFACE, blocksize, blocksize, 32, 0, 0, 0, 0);
 	this->position.x = x * blocksize;
 	this->position.y = y * blocksize;
 	this->position.w = blocksize;
 	this->position.h = blocksize;
-	this->hidden = true;
+	this->hidden = hidden_value;
 }
 
 Block::~Block()

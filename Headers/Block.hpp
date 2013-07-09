@@ -11,7 +11,7 @@ class		Block : public AObject
 {
 	// Constructor and destructor
 public:
-	Block(unsigned int, unsigned int, unsigned int);
+	Block(unsigned int, unsigned int, unsigned int, bool hidden = true);
 	~Block();
 
   // Pure methods via AObject

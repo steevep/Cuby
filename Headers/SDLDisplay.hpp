@@ -41,7 +41,7 @@ public:
 	void		Refresh(void);
 	eKey		PressedKey(void);
 	eEvent		HandleEvents(void);
-	void		EnableTransparentWindows(void);
+	void		EnableTransparentWindow(void);
 
 	// Getters
 	bool			getFullscreen(void) const;

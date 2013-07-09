@@ -61,8 +61,8 @@ void Cuby::HandleEvents(void)
 	eKey	pressed;
 	eEvent	event;
 
-	event = this->display->HandleEvents();
-	pressed = this->display->PressedKey();
+	event = this->ressources->display->HandleEvents();
+	pressed = this->ressources->display->PressedKey();
 	if (pressed != NOKEY)
 	{
 		if (pressed == ESC)

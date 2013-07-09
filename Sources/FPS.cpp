@@ -1,4 +1,5 @@
 #include "FPS.hpp"
+#include <sstream>
 
 extern Ressources  *ressources;
 
@@ -15,27 +16,11 @@ FPS::FPS(bool hidden_value)
 	this->hidden = hidden_value;
 }
 
-FPS::FPS(void)
-{
-	this->img = 0;
-	this->last = 0;
-	this->image = NULL;
-
-	this->position.x = 0;
-	this->position.y = 0;
-	this->position.w = 1;
-	this->position.h = 1;
-	this->hidden = false;
-}
-
 FPS::~FPS(void)
 {
 	if (this->image != NULL)
 		SDL_FreeSurface(this->image);
 }
-
-
-#include <sstream>
 
 void		FPS::Update(void)
 {  
