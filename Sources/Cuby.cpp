@@ -7,7 +7,7 @@ Cuby::Cuby(void)
 	this->ressources = new Ressources();
 
 	// Doing some stuff
-	this->ressources->display->EnableTransparentWindows();
+	this->ressources->display->EnableTransparentWindow();
 }
 
 Cuby::~Cuby(void)
@@ -15,8 +15,6 @@ Cuby::~Cuby(void)
 	std::list<ASection *>::iterator it;
 	std::list<AObject *>::iterator	it_ob;
 
-	delete this->display;
-	delete this->settings;
 	delete this->ressources;
 	it = this->sections.begin();
 	it_ob = this->objects.begin();
@@ -43,14 +41,14 @@ void Cuby::Run(void)
 
 	// Runtime loop
 	while (!this->quit)
-	{
+	{		
+		this->ressources->display->Refresh();
 		this->ressources->display->Clear();
 		this->HandleEvents();
 		this->UpdateObjects();
 		this->UpdateSection();
 		this->DrawSection();
 		this->DrawObjects();
-		this->ressources->display->Refresh();
 	}
 }
 

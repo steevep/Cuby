@@ -34,8 +34,6 @@ public:
 	// Attributes
 private:
 	bool					quit;
-	SDLDisplay				*display;
-	Settings				*settings;
 	Ressources				*ressources;
 	std::list<ASection *>	sections;
 	std::list<AObject *>	objects;
