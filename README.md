@@ -22,6 +22,6 @@ Cuby
 ### Author
 > Steeve Pommier
 
-* [Blog](http://www.mncorp.net)
+* [Blog](http://costardrouge.eu)
 * [Github](https://github.com/CostardRouge)
-* [Twitter](https://twitter.com/LeBlousonRouge)
+* [Twitter](https://twitter.com/BlousonRouge)
