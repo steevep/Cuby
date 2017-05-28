@@ -1,5 +1,4 @@
 #include "SDLDisplay.hpp"
-#
 
 SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 {
@@ -8,11 +7,11 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 	int	inits;
 
 	// Some test for unix
-	SDL_putenv("SDL_VIDEO_CENTERED=center");
+	// SDL_putenv("SDL_VIDEO_CENTERED=center");
 
 	// Init temporary variables
-	flags = SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF | SDL_NOFRAME;
-	inits = SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER;
+	flags = SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF/* | SDL_NOFRAME*/;
+	inits = SDL_INIT_VIDEO/* | SDL_INIT_AUDIO */| SDL_INIT_TIMER;
 
 	// Init Attributes
 	this->setFullscreen(settings->getFullscreen());
@@ -49,7 +48,7 @@ SDLDisplay::SDLDisplay(const std::string & title, Settings * settings)
 	if (!this->screen)
 		throw Exception(SDL_GetError());
 	SDL_WM_SetCaption(title.c_str(), NULL);
-	SDL_ShowCursor(SDL_DISABLE);
+	// SDL_ShowCursor(SDL_DISABLE);
 }
 
 SDLDisplay::~SDLDisplay()
@@ -62,25 +61,25 @@ SDLDisplay::~SDLDisplay()
 
 void SDLDisplay::EnableTransparentWindow(void)
 {
-    SDL_SysWMinfo	info;
-	HWND			hwnd;
-
-    SDL_VERSION(&info.version);
-    if (SDL_GetWMInfo(&info))
-        hwnd = info.window;
-    SetWindowLong(hwnd, GWL_EXSTYLE, GetWindowLong(hwnd, GWL_EXSTYLE) | WS_EX_LAYERED);
-    SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 1, LWA_COLORKEY);
+    // SDL_SysWMinfo	info;
+	// HWND			hwnd;
+	//
+    // SDL_VERSION(&info.version);
+    // if (SDL_GetWMInfo(&info))
+    //     hwnd = info.window;
+    // SetWindowLong(hwnd, GWL_EXSTYLE, GetWindowLong(hwnd, GWL_EXSTYLE) | WS_EX_LAYERED);
+    // SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 1, LWA_COLORKEY);
 }
 
 void SDLDisplay::Clear(void)
 {
-	//SDL_FillRect(this->screen, NULL, SDL_MapRGB(this->screen->format, 0, 0, 0));
+	SDL_FillRect(this->screen, NULL, SDL_MapRGB(this->screen->format, 0, 1, 0));
 }
 
 void SDLDisplay::Refresh(void)
 {
 	SDL_Flip(this->screen);
-	SDL_Delay(1000000000000000);
+	// SDL_Delay(10);
 }
 
 eEvent SDLDisplay::HandleEvents(void)

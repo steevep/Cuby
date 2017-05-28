@@ -23,7 +23,7 @@ FPS::~FPS(void)
 }
 
 void		FPS::Update(void)
-{  
+{
 	std::ostringstream	txt;
 	SDL_Color			color;
 	SDL_Event			event;
@@ -41,7 +41,7 @@ void		FPS::Update(void)
 	// Key events
 	if (event.type == SDL_KEYDOWN)
 	if (keys[SDLK_F1])
-		this->SetHidden(!this->GetHidden());
+		this->setHidden(!this->GetHidden());
 
 	// Calcute image rate
 	if (cur - this->last > 1000)

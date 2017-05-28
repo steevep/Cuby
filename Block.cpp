@@ -12,6 +12,12 @@ Block::Block(unsigned int blocksize, unsigned int x, unsigned int y, bool hidden
 	this->position.w = blocksize;
 	this->position.h = blocksize;
 	this->hidden = hidden_value;
+
+	int r = ressources->RandU(0, 255);
+	int g = ressources->RandU(0, 255);
+	int b = ressources->RandU(0, 255);
+
+	SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, r, g, b));
 }
 
 Block::~Block()
@@ -21,20 +27,21 @@ Block::~Block()
 }
 
 void	Block::Update(void)
-{  
+{
 	auto x = 0, y = 0;
 	auto x_true = false, y_true = false;
 
 	SDL_GetMouseState(&x, &y);
-	x -= ressources->offset_width;
-	y -= ressources->offset_height;
+	// x -= ressources->offset_width;
+	// y -= ressources->offset_height;
 	x_true = (x >= this->position.x && x <= (this->position.x + this->position.w));
 	y_true = (y >= this->position.y && y <= (this->position.y + this->position.w));
 
-	if (x_true && y_true)
-		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, vr++, 10, 50));
+	if (x_true && y_true) {
+		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, vr, 10, 50));
+		vr += 3;
+	}
 
-	vr++;
 	if (this->hidden == true)
 		SDL_FillRect(this->image, NULL, SDL_MapRGB(this->image->format, 0,  vr, vr));
 }

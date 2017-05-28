@@ -29,7 +29,7 @@ typedef enum
 }	eColor;
 
 // Includes
-#include "SDL.h"
+#include <SDL/SDL.h>
 #include <list>
 
 class		Color

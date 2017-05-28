@@ -12,7 +12,7 @@ typedef enum
 }	eType;
 
 // Includes
-#include "SDL.h"
+#include <SDL/SDL.h>
 #include "Ressources.hpp"
 
 class		AObject
@@ -30,12 +30,14 @@ public:
 public:
 	eType				getType(void) const;
 	const SDL_Rect &	getPosition(void) const;
+	SDL_Surface *		getSurface(void) const;
 	bool				GetHidden(void) const;
+
 
 	// Setters
 public:
 	void				setType(eType);
-	void				SetHidden(bool);
+	void				setHidden(bool);
 	void				setPosition(const SDL_Rect &);
 
 	// Attributes

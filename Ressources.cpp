@@ -10,7 +10,7 @@ Ressources::Ressources(void)
 	this->colors = new Colors();
 
 	// Init ressources
-	this->image_change = true;
+	this->image_change = false;
 	this->offset_height = 0;
 	this->offset_width = 0;
 
@@ -28,4 +28,9 @@ Ressources::~Ressources(void)
 	delete this->colors;
 	delete this->display;
 	delete this->settings;
+}
+
+int Ressources::RandU(int nMin, int nMax)
+{
+    return nMin + (int)((double)rand() / (RAND_MAX+1) * (nMax-nMin+1));
 }

@@ -11,6 +11,11 @@ const SDL_Rect &	AObject::getPosition(void) const
 	return (this->position);
 }
 
+SDL_Surface *	AObject::getSurface(void) const
+{
+	return (this->image);
+}
+
 bool				AObject::GetHidden(void) const
 {
 	return (this->hidden);
@@ -30,7 +35,7 @@ void				AObject::setPosition(const SDL_Rect & value)
 	this->position.w = value.w;
 }
 
-void				AObject::SetHidden(bool value)
+void				AObject::setHidden(bool value)
 {
 	this->hidden = value;
 }

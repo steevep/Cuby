@@ -13,6 +13,10 @@ public:
 	Ressources(void);
 	~Ressources(void);
 
+	// Members functions
+public:
+	int					RandU(int nMin, int nMax);
+
 	// Attributes
 public:
 	int					current_section;

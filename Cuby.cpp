@@ -7,7 +7,7 @@ Cuby::Cuby(void)
 	this->ressources = new Ressources();
 
 	// Doing some stuff
-	this->ressources->display->EnableTransparentWindow();
+	// this->ressources->display->EnableTransparentWindow();
 }
 
 Cuby::~Cuby(void)
@@ -35,13 +35,13 @@ Cuby::~Cuby(void)
 void Cuby::Run(void)
 {
 	// Push Objects / Sections
-	this->objects.push_back(new FPS());
+	this->objects.push_back(new FPS(false));
 	this->ressources->current_section = SCREENSAVER;
 	this->sections.push_back(new ScreenSaver(this->ressources));
 
 	// Runtime loop
 	while (!this->quit)
-	{		
+	{
 		this->ressources->display->Refresh();
 		this->ressources->display->Clear();
 		this->HandleEvents();

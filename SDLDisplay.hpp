@@ -20,13 +20,10 @@ typedef enum
 }	eEvent;
 
 // Includes
-# include "SDL.h"
-# include "SDL_ttf.h"
+# include <SDL/SDL.h>
+# include <SDL/SDL_ttf.h>
 # include "Settings.hpp"
 # include "Exception.hpp"
-
-# include <windows.h>
-# include "SDL_syswm.h"
 
 class		SDLDisplay
 {
